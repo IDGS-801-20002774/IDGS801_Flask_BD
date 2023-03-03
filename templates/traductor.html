@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% from "_macros.html" import render_field, render_input %}
+<form action="" method="POST" novalidate>
+    {{form.csrf_token}}
+    <div class="span6 mt-5 pt-5">
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"> 
+        <div class="row control-group">
+            <div class="form-group">
+                {{render_field(form.palabraEspanol)}}
+                {{render_field(form.palabraIngles)}}
+            </div>
+            <input type="submit" value="Agregar" name="btnAgregar">
+        </div>
+        <p>{{message}}</p>
+    </div>
+    <div>
+        <div class="row control-group">
+            <div>
+                {{render_input(name = "txtPalabraTraducir", placeholder = "Palabra a traducir", type = "text")}}
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label class="form-label">¿A qué idioma deseas traducirla?</label>
+                <input type="radio" name="rbtLenguaje" value="es">&nbsp;&nbsp;Español<br>
+                <input type="radio" name="rbtLenguaje" value="en">&nbsp;&nbsp;Inglés
+            </div>
+            <input type="submit" value="Traducir" name="btnTraducir">
+        </div>
+        <p>{{translation}}</p>
+    </div>
+</form>
+
+{% endblock %}

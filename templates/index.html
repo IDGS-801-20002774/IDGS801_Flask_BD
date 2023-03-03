@@ -1,0 +1,32 @@
+{% extends "layout.html" %} 
+ 
+ {% block content%}
+   {%from "_macros.html" import render_field%}
+ 
+   <div class="container">
+    <div class="row">
+        <div class="span6" style="padding-left: 10px;">
+            <form name="sent" action="/" id="form1" method="POST">
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_field(form.nombre,class='form-control')}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_field(form.apellidos,class='form-control')}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_field(form.email,class='form-control')}}
+                    </div>
+                </div>
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                <input type="submit" id="reg-alum" name="registra" value="Registrar"/>
+            </form>
+        </div>
+    </div>
+   </div>
+ 
+{% endblock %}

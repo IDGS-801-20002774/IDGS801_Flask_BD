@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    
+    <form action="" method="POST" novalidate>
+        <div class="col-6 mt-5 pt-5">
+            {% from "_macros.html" import render_field %}
+            <div class="row control-group">
+                <div class="form-group">
+                    {{render_field(form.matricula)}}
+                </div>
+                {{render_field(form.nombre)}}
+                {{render_field(form.apaterno)}}
+                {{render_field(form.amaterno)}}
+                {{render_field(form.email)}}
+                <input type="submit" value="Registrar">
+            </div>
+        </div>
+    </form>
+
+    <div class="col-6 mt-5 pt-5">
+        <h5>Matrícula: {{mat}}</h5>
+        <h5>Nombre: {{nom}}</h5>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{%block content %}
+<div class="container" >
+    <form action="" method="POST">
+        <div class="span6">
+            {% from "_macros.html" import render_field, render_input %}
+            <div class="row control-group">
+                <div class="form-group">
+                    {{render_field(form.cantidadCajas)}}
+                </div>
+                <input type="submit" name="btnGenerar" value="Generar">
+                <div style="margin-top: 40px;">
+                    {% for caja in range(cantidadCajas) %}
+                    {{render_input(name = "txtCaja"~(caja+1), placeholder="Número "~(caja+1)~":", type="number")}}
+                    {% endfor %}
+                    <input type="submit" name="btnProcesar" value="Procesar" {% if not mostrarBoton
+                        %}style="display:none" {% endif %}>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row control-group" {% if not mostrarInfo %}style="display:none" {% endif %}>
+                <div class="form-group">
+                    <h4>Los números enviados fueron {{cantidadCajas}}, y son: </h4>
+                    {% for numero in valoresCajas %}
+                    <li>{{numero}}</li>
+                    {% endfor %}
+                </div>
+                <div style="margin-top: 10px;">
+                    <h5>El promedio es: {{promedio}}</h5>
+                    <h5>El máximo es: {{maximo}}</h5>
+                    <h5>El mínimo es: {{minimo}}</h5><br>
+                    <h5>Número(s) que se repite: {{numerosRepetidos}}</h5>
+                    <h5>Veces que se repite: {{veces}}</h5>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{%endblock%}
