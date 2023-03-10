@@ -19,11 +19,24 @@
                 </div>
                 <div class="row control-group">
                     <div class="form-group col-xs-12 float-label-form-group controls">
-                        {{render_field(form.email,class='form-control')}}
+                        {{render_field(form.especialidad,class='form-control')}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_field(form.correo,class='form-control')}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_field(form.telefono,class='form-control')}}
                     </div>
                 </div>
                 <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
-                <input type="submit" id="reg-alum" class="btn btn-success" name="registra" value="Registrar"/>
+                <input type="submit" id="req_maestro" class="btn btn-success" name="registra" value="Registrar"/>
+                <a href="" class="btn btn-primary">
+                    <i class="icon-undo icon-white"></i>Ver registros
+                </a>
             </form>
         </div>
     </div>
