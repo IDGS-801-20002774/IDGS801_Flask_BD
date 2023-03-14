@@ -10,9 +10,25 @@ class UserForm(Form):
     email = EmailField('correo')
 
 class MaestroForm(Form):
-    id = IntegerField('Id:')
-    nombre = StringField('Nombre:')
-    apellidos = StringField('Apellidos:')
-    especialidad = StringField('Especialidad:')
-    correo = EmailField('Correo:')
-    telefono = StringField('Telefono:')
+    id = IntegerField('Id:', [
+        validators.DataRequired(message = '¡El campo es requerido!'),
+    ], render_kw={"readonly": True})
+    nombre = StringField('Nombre(s):', [
+        validators.DataRequired(message = '¡El campo es requerido!')
+    ])
+    ape_paterno = StringField('Apellido paterno:', [
+        validators.DataRequired(message = '¡El campo es requerido!')
+    ])
+    ape_materno = StringField('Apellido materno:', [
+        validators.DataRequired(message = '¡El campo es requerido!')
+    ])
+    especialidad = StringField('Especialidad:', [
+        validators.DataRequired(message = '¡El campo es requerido!')
+    ])
+    correo = EmailField('Correo:', [
+        validators.DataRequired(message = '¡El campo es requerido!')
+    ])
+    telefono = StringField('Teléfono:', [
+        validators.Length(min = 10, max = 10),
+        validators.DataRequired(message = '¡El campo es requerido!')
+    ])

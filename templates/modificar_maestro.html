@@ -5,7 +5,12 @@
 
 <div class="container">
     <div class="span6" style="padding-left: 30px;">
-        <form action="/maestro" method="POST">
+        <form action="/modificar-maestro" method="POST">
+            <div class="row control-group">
+                <div class="form-group col-xs-12 float-label-form-group controls">
+                    {{render_field(form.id,class='form-control')}}
+                </div>
+            </div>
             <div class="row control-group">
                 <div class="form-group col-xs-12 float-label-form-group controls">
                     {{render_field(form.nombre,class='form-control')}}
@@ -37,11 +42,11 @@
                 </div>
             </div>
             <input type="hidden" name="csrf_token" value="{{csrf_token()}}" />
-            <button type="submit" class="btn btn-success" name="registrar_maestro">
-                <i class="icon-ok icon-white" style="margin-right: 5px;"></i>Registrar
+            <button type="submit" class="btn btn-success" name="modificar_maestro">
+                <i class="icon-ok icon-white" style="margin-right: 5px;"></i>Modificar
             </button>
             <a href="/registros-maestros" class="btn btn-primary">
-                <i class="icon-eye-open icon-white" style="margin-right: 5px;"></i>Ver registros
+                <i class="icon-arrow-left icon-white" style="margin-right: 5px;"></i>Regresar
             </a>
         </form>
     </div>
